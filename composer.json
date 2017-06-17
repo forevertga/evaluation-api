@@ -1,16 +1,62 @@
 {
-  "name": "Phalcon Base Projet",
+  "name": "forevertga/evaluation-api",
+  "description": "Base project for bootstrapping phalcon projects",
+  "keywords": [
+    "phalcon",
+    "framework",
+    "basic",
+    "project template",
+    "improved"
+  ],
+  "type": "project",
+  "license": "MIT",
+  "minimum-stability": "stable",
   "require": {
     "bshaffer/oauth2-server-php": "^1.8",
     "cottacush/phalcon-utils": "^1.10",
     "redound/phalcon-rest": "^1.4.0",
     "vlucas/phpdotenv": "^2.2",
     "phalcon/incubator": "^2.0.8",
-    "robmorgan/phinx": "^0.5.3"
+    "robmorgan/phinx": "^0.5.3",
+    "ext-phalcon": ">=3.0.0"
   },
   "require-dev": {
     "codeception/codeception": "^2.2",
     "redcomponent/teststatistics": "^2.2",
-    "flow/jsonpath": "^0.3.1"
+    "flow/jsonpath": "^0.3.1",
+    "pagerfanta/pagerfanta": "^1.0",
+    "league/fractal": "^0.13.0",
+    "squizlabs/php_codesniffer": "2.*",
+    "pdepend/pdepend" : "2.2.4",
+    "phploc/phploc": "*",
+    "phpmd/phpmd" : "@stable",
+    "sebastian/phpcpd": "*"
+  },
+  "config": {
+    "process-timeout": 1800,
+    "discard-changes": true
+  },
+  "authors": [
+    {
+      "name": "Adeyemi Olaoye",
+      "email": "yemi@cottacush.com",
+      "homepage": "https://adeyemiolaoye.me",
+      "role": "Software Engineer"
+    }
+
+    {
+      "name": "Akinwunmi Taiwo",
+      "email": "taiwo@cottacush.com",
+      "role": "Software Developer"
+    }
+  ],
+  "suggest": {
+    "pagerfanta/pagerfanta": "Install PagerFanta to use Pagination",
+    "league/fractal": "Install Fractal to use Transformers",
+    "wsdl2phpgenerator/wsdl2phpgenerator": "Install WSDL2PHP generator to generate classes from WSDL",
+    "besimple/soap-client": "Install SOAP Client for connecting with SOAP services",
+    "xamin/handlebars.php": "Install Handlebars for fluent templating",
+    "mcustiel/phiremock-codeception-extension": "Install phiremock for mocking"
   }
 }
+

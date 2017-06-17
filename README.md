@@ -1,10 +1,10 @@
-# Phalcon Base Project
+# Evaluation Test Service (API)
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
 [![Total Downloads][ico-downloads]][link-downloads]
 
-> Base project for bootstrapping phalcon projects
+> Using Phalcon Template for bootstrapping
 
 ## Requirements
 The minimum requirement by this project template that your Web server supports PHP 5.6
@@ -19,7 +19,7 @@ If you do not have [Composer](http://getcomposer.org/), you may install it by fo
 You can then install this project template using the following command:
 
 ~~~
-composer create-project --prefer-dist cottacush/phalcon-base-project new_project
+composer create-project --prefer-dist cottacush/phalcon-base-project evaluation-service
 ~~~
 
 
@@ -42,12 +42,13 @@ Sample Virtual Host Config for Apache
 ```apache
 <VirtualHost *:80>
     ServerAdmin admin@app.com
-    DocumentRoot "<WebServer Root Dir>/app/public"
-    ServerName local-service.app.com
-    ServerAlias local-service.app
-    ErrorLog ${APACHE_LOG_DIR}/local-service.app.error.log
-    CustomLog ${APACHE_LOG_DIR}/local-service.app.access.log common
-    <Directory <WebServer Root Dir>/app/public>
+    DocumentRoot "<WebServer Root Dir>/evaluation-service/public"
+    ServerName test.evaluation-service.com
+    ServerAlias test.evaluation-service
+    SetEnv APPLICATION_ENV test
+    ErrorLog ${APACHE_LOG_DIR}/test.evaluation-service.error.log
+    CustomLog ${APACHE_LOG_DIR}/test.evaluation-service.access.log common
+    <Directory <WebServer Root Dir>/evaluation-service/public>
        AllowOverride all
        Options -MultiViews
        Require all granted
@@ -66,7 +67,7 @@ Make a copy of  `.env.sample` to `.env` in the env directory and replace values 
 
 ## Setting OAuth2 Tables
 
-Create a new database `app`
+Create a new database `db-name`
 
 Run Migrations by running  ``./vendor/bin/phinx migrate``
 
@@ -83,11 +84,9 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 
 ## Security
 
-If you discover any security related issues, please email <developers@cottacush.com> instead of using the issue tracker.
-
 ## Credits
 
-- [Adeyemi Olaoye <yemi@cottacush.com>] [link-author]
+- [Akinwunmi Taiwo <akinwunmi49@gmail.com>]
 - [All Contributors][link-contributors]
 
 ## License
@@ -101,10 +100,9 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [ico-code-quality]: https://img.shields.io/scrutinizer/g/cottacush/phalcon-base-project.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/cottacush/phalcon-base-project.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/cottacush/phalcon-base-project
+[link-packagist]: https://poser.pugx.org/cottacush/phalcon-base-project/v/stable
 [link-travis]: https://travis-ci.org/cottacush/phalcon-base-project
 [link-scrutinizer]: https://scrutinizer-ci.com/g/cottacush/phalcon-base-project/code-structure
 [link-code-quality]: https://scrutinizer-ci.com/g/cottacush/phalcon-base-project
 [link-downloads]: https://packagist.org/packages/cottacush/phalcon-base-project
-[link-author]: https://github.com/yemexx1
 [link-contributors]: ../../contributors
