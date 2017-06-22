@@ -5,9 +5,11 @@ namespace App\Controller;
 use App\Constants\ResponseCodes;
 use App\Library\Util;
 use App\Model\User;
+use App\Model\UserLoginHistory;
 use App\Validation\UserAuthenticationValidation;
 use App\Validation\UserRegistrationValidation;
 use Phalcon\Config;
+use Phalcon\Mvc\Model\Exception;
 
 /**
  * Class AuthenticationController
@@ -17,10 +19,6 @@ use Phalcon\Config;
  */
 class AuthenticationController extends BaseController
 {
-    /**
-     * @author Akinwunmi Taiwo <taiwo@cottacush.com>
-     * @return mixed|void
-     */
     public function authenticate()
     {
         $postData = $this->getPostData();
@@ -32,6 +30,14 @@ class AuthenticationController extends BaseController
 
         $user = (new User())->authenticate($postData->username, $postData->password);
 
+        if (!$user) {
+            //log status of login
+            UserLoginHistory::logFailedLogin($postData->username, User::getLastErrorMessage(), $this->request);
+            return $this->response->sendError(ResponseCodes::AUTH_ERROR, 401, User::getLastErrorMessage());
+        }
+
+        //log status of login
+        UserLoginHistory::logSuccessfulLogin($user->username, $this->request);
         return $this->response->sendSuccess(
             array_merge(
                 $user->toArray()
@@ -54,8 +60,8 @@ class AuthenticationController extends BaseController
             return $this->sendBadRequestResponse($validation->getMessages());
         }
 
-        $postData->updated_at = Util::getCurrentDateTime();
-        $postData->password = Util::encryptPassword($postData->password);
+        /** TODO encrypt password when creating new user */
+//        $postData->password = Util::encryptPassword($postData->password);
 
         /** @var User $user */
 

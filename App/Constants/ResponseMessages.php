@@ -17,7 +17,8 @@ class ResponseMessages
         ResponseCodes::AUTH_ACCESS_TOKEN_REQUIRED => 'access_token is required',
         ResponseCodes::INVALID_AUTHENTICATION_DETAILS => "The user/password combination provided is invalid",
         ResponseCodes::INVALID_PARAMETERS => 'Invalid parameters supplied for input fields',
-        ResponseCodes::USER_REGISTRATION_ERROR => 'An error occurred while creating new user'
+        ResponseCodes::USER_REGISTRATION_ERROR => 'An error occurred while creating new user',
+        ResponseCodes::RECORD_NOT_FOUND => 'Record not found'
     ];
 
     /**

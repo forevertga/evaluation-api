@@ -19,4 +19,5 @@ class MigrationConstants
     const TABLE_OAUTH_REFRESH_TOKENS = 'oauth_refresh_tokens';
     const TABLE_USERS = 'users';
     const TABLE_USER_LOGIN_HISTORY = 'user_login_history';
+    const TABLE_MEDIA = 'media';
 }

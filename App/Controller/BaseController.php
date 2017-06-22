@@ -92,7 +92,7 @@ class BaseController extends Controller
     {
         return $this->response->sendError(
             $responseCode,
-            HttpStatusCodes::NOT_FOUND_CODE,
+            HttpStatusCodes::HTTP_404,
             $message
         );
     }

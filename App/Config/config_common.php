@@ -9,6 +9,7 @@ return [
         'pluginsDir' => __DIR__ . '/../plugins/',
         'logsDir' => __DIR__ . '/../logs/',
         'constantsDir' => __DIR__ . '/../Constants/',
+        'validationsDir' => __DIR__ . '/../Validations/',
         'middlewaresDir' => __DIR__ . '/../Middleware/',
         'tasksDir' => __DIR__ . '/../tasks/',
         'appDir' => __DIR__ . '/../'

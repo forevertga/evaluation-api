@@ -22,7 +22,6 @@ use Phalcon\Http\Request;
  * @author Akinwunmi Taiwo <taiwo@cottacush.com>
  * @package App\Model
  * @property Response $response
- * @property Request $request
  */
 class User extends BaseModel
 {
@@ -47,19 +46,15 @@ class User extends BaseModel
             'bind' => ['username' => $username]
         ]);
 
-        if ($user == false) {
-            throw new Exception(ResponseCodes::INVALID_AUTHENTICATION_DETAILS);
+        if($password !== $user->password) {
+            throw new Exception('Check the password you provided');
         }
 
-        //validate password
-        if (!Util::verifyPassword($password, $user->password)) {
-            //log status of login
-            UserLoginHistory::logFailedLogin($username, User::getLastErrorMessage(), $this->request);
-            return $this->response->sendError(ResponseCodes::AUTH_ERROR, 401, User::getLastErrorMessage());
-        }
+//        if(!Util::verifyPassword($password, $user['password']))
+//        {
+//            throw new Exception('Check the password you provided');
+//        }
 
-        //log status of login
-        UserLoginHistory::logSuccessfulLogin($user->username, $this->request);
         return $user;
     }
 

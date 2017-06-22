@@ -12,5 +12,6 @@ $loader->registerDirs([
 
 $loader->registerNamespaces([
     'App' => $config->application->appDir,
-    'App\Task' => $config->application->tasksDir
+    'App\Task' => $config->application->tasksDir,
+    'App\Validation' => $config->application->validationsDir,
 ])->register();

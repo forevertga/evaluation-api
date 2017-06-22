@@ -105,6 +105,11 @@ class HttpStatusCodes
     const HTTP_598 = 'Network read timeout error';
     const HTTP_599 = 'Network connect timeout error';
 
+    const BAD_REQUEST_CODE = 400;
+    const INTERNAL_SERVER_ERROR_CODE = 500;
+    const OK_CODE = 200;
+    const NOT_FOUND_CODE = 404;
+
     /**
      * Get the HTTP status message for the specifed HTTP status code
      * @param $code

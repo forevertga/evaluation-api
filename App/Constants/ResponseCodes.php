@@ -17,4 +17,5 @@ class ResponseCodes
     const INVALID_AUTHENTICATION_DETAILS  = 'E006';
     const INVALID_PARAMETERS = 'E007';
     const USER_REGISTRATION_ERROR = 'E008';
+    const RECORD_NOT_FOUND = 'E009';
 }
